@@ -1,38 +1,36 @@
 ## 📚 Explicando o Código
 
-O código-fonte da aplicação `app.py` possui uma vulnerabilidade de XSS (Cross Site Scripting - Reflected) onde permite a injeção de código na aplicação web. Outro arquivo python é o `secrets_test.py` que contém secrets Keys falsas onde em ambos os casos da aplicação web é uma porta de entrada para que Agentes Maliciosos explorem essas vulnerabilidades.
+O código-fonte da aplicação `app.py` possui uma vulnerabilidade de XSS (Cross Site Scripting - Reflected), que permite a injeção de código na aplicação web. Outro arquivo Python é o `secrets_test.py`, que contém secret keys falsas. Em ambos os casos, a aplicação web apresenta portas de entrada que podem ser exploradas por agentes maliciosos.
 
 ---
 
 ## Decisões tomadas enquanto montava a pipeline
 
-Ao montar a pipeline, meu objetivo foi garantir uma análise completa e automatizada de vulnerabilidades tanto no código quanto na imagem Docker, então optei por utilizar a ferramenta `Gitleaks` para identificar segredos contidos dentro do código, e para uma analise estática focada no código python utilizei a ferramenta `Bandit` devido sua integração e especialidade nessa linguagem, para fazer o scan da imagem Docker utilizei a ferramenta `Trivy` por sua especialidade em analisar vulnerabilidades e segredos. 
+Ao montar a pipeline, meu objetivo foi garantir uma análise completa e automatizada de vulnerabilidades tanto no código quanto na imagem Docker. Por isso, optei por utilizar a ferramenta `Gitleaks` para identificar segredos contidos no código. Para uma análise estática focada em código Python, utilizei a ferramenta `Bandit`, devido à sua integração e especialidade nessa linguagem. Para realizar o scan da imagem Docker, utilizei a ferramenta `Trivy`, por sua especialidade em analisar vulnerabilidades e segredos.
 
-Usei Docker Compose para facilitar a orquestração dos containers e um Makefile para simplificar a execução dos comandos, garantindo que as etapas fossem repetíveis e organizadas, com os relatórios sempre gerados em diretórios específicos para fácil consulta.
+Usei o `Docker Compose` para facilitar a orquestração dos containers e um  `Makefile` para simplificar a execução dos comandos, garantindo que as etapas fossem repetíveis e organizadas, com os relatórios sempre gerados em diretórios específicos para fácil consulta.
 
-E por fim utilizei o gerenciador de vulnerabilidades `DefectDojo` para uma melhor visualização dos scans.
+Por fim, utilizei o gerenciador de vulnerabilidades `DefectDojo` para uma melhor visualização dos scans.
 
 ---
 
 ## 💻 Como Executar a pipepline
 
-* Crie um arquivo `reports` através do comando `mkidr reports`.
-
-* Depois para executar as ferramentas veja as instruções `como rodar as ferramentas`.
+* Para executar as ferramentas veja as instruções `como rodar as ferramentas`.
 
 * O arquivo de configuração das ferramentas está dentro do `docker-compose.yml`.
 
 ---
 ## 🚀 Acessando o DefectDojo
 
-credenciais de acesso ao DefectDojo:
+Credenciais de acesso ao DefectDojo:
 
-* usuário: `admin`
-* senha: `Admin@123`
+* Usuário: `admin`
+* Senha: `Admin@123`
 
-* Para enviar os scans para o `DefectDojo` utilize o comando: `make all`.
+* Para enviar rodar os scans e enviar para  `DefectDojo` utilize o comando: `make all`.
 
-* Depois acesse: `http://localhost:8080/`
+* Depois, acesse: `http://localhost:8080/`
 
 ---
 
@@ -54,11 +52,13 @@ credenciais de acesso ao DefectDojo:
 
 * Para rodar o `trivy` basta utilizar o comando: `make pipeline`.
 
+* Para rodar todas as ferramentas (recomendável): `make all`.
+
 ---
 
 ## 🔍 Evidências (prints e logs de scans)
 
 DefectDojo com os findings:
 
-![findings](prints/Captura de tela 2025-07-10 173217.png)
+![findings](prints/findings.png)
 
