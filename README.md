@@ -6,6 +6,11 @@ O código-fonte da aplicação `app.py` possui uma vulnerabilidade de XSS (Cross
 
 ## Decisões tomadas enquanto montava a pipeline
 
+Ao montar a pipeline, meu objetivo foi garantir uma análise completa e automatizada de vulnerabilidades tanto no código quanto na imagem Docker, então optei por utilizar a ferramenta `Gitleaks` para identificar segredos contidos dentro do código, e para uma analise estática focada no código python utilizei a ferramenta `Bandit` devido sua integração e especialidade nessa linguagem, para fazer o scan da imagem Docker utilizei a ferramenta `Trivy` por sua especialidade em analisar vulnerabilidades e segredos. 
+
+Usei Docker Compose para facilitar a orquestração dos containers e um Makefile para simplificar a execução dos comandos, garantindo que as etapas fossem repetíveis e organizadas, com os relatórios sempre gerados em diretórios específicos para fácil consulta.
+
+E por fim utilizei o gerenciador de vulnerabilidades `DefectDojo` para uma melhor visualização dos scans.
 
 ---
 
@@ -22,16 +27,17 @@ O código-fonte da aplicação `app.py` possui uma vulnerabilidade de XSS (Cross
 
 credenciais de acesso ao DefectDojo:
 
-usuário: `admin`
-senha: `admin123`
+* usuário: `admin`
+* senha: `admin123`
 
-Para rodar o DefectDojo utilize o comando: `make dojo-up`.
+* Para rodar o DefectDojo utilize o comando: `make dojo-up`.
  
-Para encerrar o DefectDojo utilize o comando: `make dojo-down`.
+* Para encerrar o DefectDojo utilize o comando: `make dojo-down`.
 
-Para reiniciar o DefectDojo utilize o comando: `make dojo-restart`.
+* Para reiniciar o DefectDojo utilize o comando: `make dojo-restart`.
 
-Para acessar o localhost utilize o comando: `explorer.exe http://localhost:8080`
+* Para acessar o localhost utilize o comando: `explorer.exe http://localhost:8080`.
+
 ---
 
 ## ⚒️ Ferramentas utilizadas até o momento 
@@ -46,11 +52,11 @@ Para acessar o localhost utilize o comando: `explorer.exe http://localhost:8080`
 
 ## 🪖 Para rodar as ferramentas 
 
-Para rodar o `bandit` basta utilizar o comando: `docker compose up --build bandit` ou `make bandit`.
+* Para rodar o `bandit` basta utilizar o comando: `docker compose up --build bandit` ou `make bandit`.
 
-Para rodar o `gitleaks` basta utilizar o comando: `docker compose run --rm gitleaks` ou ``make gitleaks`.
+* Para rodar o `gitleaks` basta utilizar o comando: `docker compose run --rm gitleaks` ou ``make gitleaks`.
 
-Para rodar o `trivy` basta utilizar o comando: `make pipeline`.
+* Para rodar o `trivy` basta utilizar o comando: `make pipeline`.
 
 ---
 
