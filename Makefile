@@ -29,8 +29,6 @@ trivy: prepare build
 dojo-up:
 	docker compose up -d defectdojo db
 
-
-
 # Para os containers do DefectDojo
 dojo-down:
 	docker compose down
@@ -38,7 +36,7 @@ dojo-down:
 # Reinicia o DefectDojo
 dojo-restart:
 	docker compose down && docker compose up -d defectdojo defectdojo-db
-
+	docker compose up -d defectdojo db
 	
 # Alvo completo: roda todas as ferramentas de segurança na sequência
-all: bandit gitleaks trivy 
+all: bandit gitleaks trivy dojo-up

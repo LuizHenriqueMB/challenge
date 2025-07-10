@@ -39,7 +39,7 @@ services:
     environment:
       - POSTGRES_DB=defectdojo
       - POSTGRES_USER=defectdojo
-      - POSTGRES_PASSWORD=your_secure_password # Mude para uma senha forte!
+      - POSTGRES_PASSWORD=your_secure_password 
     volumes:
       - db_data:/var/lib/postgresql/data
     healthcheck:
@@ -50,7 +50,7 @@ services:
 
   # DefectDojo:
   defectdojo:
-    image: defectdojo/defectdojo-django:latest # Ou uma versão específica, como 2.11.0
+    image: defectdojo/defectdojo-django:latest 
     depends_on:
       db:
         condition: service_healthy
@@ -58,12 +58,12 @@ services:
       - DD_DATABASE_HOST=db
       - DD_DATABASE_NAME=defectdojo
       - DD_DATABASE_USER=defectdojo
-      - DD_DATABASE_PASSWORD=your_secure_password # Use a mesma senha do banco de dados
-      - DD_ADMIN_USERNAME=admin # Mude para um usuário administrador seguro
-      - DD_ADMIN_PASSWORD=admin_secure_password # Mude para uma senha de administrador forte!
+      - DD_DATABASE_PASSWORD=your_secure_password 
+      - DD_ADMIN_USERNAME=admin 
+      - DD_ADMIN_PASSWORD=admin_secure_password 
       - DD_DEBUG=False
     ports:
-      - "8080:8080" # Mapeia a porta 8080 do host para a porta 8080 do contêiner
+      - "8080:8080" 
     volumes:
       - static_data:/app/static
       - media_data:/app/media

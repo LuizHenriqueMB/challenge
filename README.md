@@ -11,7 +11,11 @@ O código-fonte da aplicação `app.py` possui uma vulnerabilidade de XSS (Cross
 
 ## 💻 Como Executar a pipepline
 
+* Crie um arquivo `reports` através do comando `mkidr reports`.
 
+* Depois para executar as ferramentas veja as instruções `como rodar as ferramentas`.
+
+* O arquivo de configuração das ferramentas está dentro do `docker-compose.yml`.
 
 ---
 ## 🚀 Acessando o DefectDojo
@@ -21,12 +25,13 @@ credenciais de acesso ao DefectDojo:
 usuário: `admin`
 senha: `admin123`
 
- Para rodar o DefectDojo utilize o comando: `make dojo-up`.
+Para rodar o DefectDojo utilize o comando: `make dojo-up`.
  
- Para encerrar o DefectDojo utilize o comando: `make dojo-down`.
+Para encerrar o DefectDojo utilize o comando: `make dojo-down`.
 
- Para reiniciar o DefectDojo utilize o comando: `make dojo-restart`.
+Para reiniciar o DefectDojo utilize o comando: `make dojo-restart`.
 
+Para acessar o localhost utilize o comando: `explorer.exe http://localhost:8080`
 ---
 
 ## ⚒️ Ferramentas utilizadas até o momento 

@@ -9,6 +9,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # EXPOSE port 5000
 EXPOSE 5000
 
+# EXPOSE port DefectDojo
+EXPOSE 8080
+
 # Install bandit
 RUN pip install Bandit --no-cache-dir
 
