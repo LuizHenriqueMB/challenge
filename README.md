@@ -36,23 +36,23 @@ Credenciais de acesso ao DefectDojo:
 
 ## ⚒️ Ferramentas utilizadas até o momento 
 
-* Gitleaks como SAST.
-* Bandit para encontrar vulnerabilidades no código python.
-* Trivy para encontrar vulnerabilidades como segredos e imagens Docker. 
-* Makefile como o orquestrador da pipeline.
-* DefectDojo como gerenciador de vulnerabilidades.
+* `Gitleaks` como SAST.
+* `Bandit` para encontrar vulnerabilidades no código python.
+* `Trivy` para encontrar vulnerabilidades e segredos em imagens Docker. 
+* `Makefile` como o orquestrador da pipeline.
+* `DefectDojo` como gerenciador de vulnerabilidades.
 
 ---
 
 ## 🪖 Para rodar as ferramentas 
 
-* Para rodar o `bandit` basta utilizar o comando: `docker compose up --build bandit` ou `make bandit`.
+* Para rodar o `bandit`, utilize o comando: `docker compose up --build bandit` ou `make bandit`.
 
-* Para rodar o `gitleaks` basta utilizar o comando: `docker compose run --rm gitleaks` ou ``make gitleaks`.
+* Para rodar o `gitleaks`, utilize o comando: `docker compose run --rm gitleaks` ou ``make gitleaks`.
 
-* Para rodar o `trivy` basta utilizar o comando: `make pipeline`.
+* Para rodar o `trivy`, utilize o comando: `make pipeline`.
 
-* Para rodar todas as ferramentas (recomendável): `make all`.
+* Para rodar todas as ferramentas (recomendado): `make all`.
 
 ---
 
