@@ -1,0 +1,32 @@
+version: "3.9"
+
+# bandit:
+services:
+  bandit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bandit_scanner
+    volumes:
+      - ./src:/src
+      - ./reports:/output # Mapeia o projeto para o container
+    entrypoint: ["bandit", "-r", "/src", "-f", "json", "-o", "/output/bandit-report.json"]
+
+# gitleaks:
+  gitleaks:
+    image: zricethezav/gitleaks:latest
+    container_name: gitleaks_git_scanner
+    entrypoint:
+      - gitleaks
+      - detect
+      - --source=https://github.com/LuizHenriqueMB/challenge.git
+      - --report-format=json
+      - --report-path=gitleaks-report.json
+  
+  # trivy:
+  trivy:
+    image: aquasec/trivy:latest
+    volumes:
+      - ./:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    entrypoint: ["trivy"]
