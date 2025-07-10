@@ -28,15 +28,11 @@ E por fim utilizei o gerenciador de vulnerabilidades `DefectDojo` para uma melho
 credenciais de acesso ao DefectDojo:
 
 * usuário: `admin`
-* senha: `admin123`
+* senha: `Admin@123`
 
-* Para rodar o DefectDojo utilize o comando: `make dojo-up`.
- 
-* Para encerrar o DefectDojo utilize o comando: `make dojo-down`.
+* Para enviar os scans para o `DefectDojo` utilize o comando: `make all`.
 
-* Para reiniciar o DefectDojo utilize o comando: `make dojo-restart`.
-
-* Para acessar o localhost utilize o comando: `explorer.exe http://localhost:8080`.
+* Depois acesse: `http://localhost:8080/`
 
 ---
 
@@ -46,7 +42,7 @@ credenciais de acesso ao DefectDojo:
 * Bandit para encontrar vulnerabilidades no código python.
 * Trivy para encontrar vulnerabilidades como segredos e imagens Docker. 
 * Makefile como o orquestrador da pipeline.
-* DefecDojo como gerenciador de vulnerabilidades.
+* DefectDojo como gerenciador de vulnerabilidades.
 
 ---
 
@@ -61,4 +57,8 @@ credenciais de acesso ao DefectDojo:
 ---
 
 ## 🔍 Evidências (prints e logs de scans)
+
+DefectDojo com os findings:
+
+![findings](prints/Captura de tela 2025-07-10 173217.png)
 

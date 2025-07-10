@@ -23,20 +23,9 @@ build:
 trivy: prepare build
 	docker compose run --rm trivy trivy image --format json --output /reports/trivy-report.json challenge || true
 
-# DefectDojo
+# upload_scans
+upload_scans: 
+	python3 scripts/upload_scans.py
 
-# Sobe o DefectDojo e o banco
-dojo-up:
-	docker compose up -d defectdojo db
-
-# Para os containers do DefectDojo
-dojo-down:
-	docker compose down
-
-# Reinicia o DefectDojo
-dojo-restart:
-	docker compose down && docker compose up -d defectdojo defectdojo-db
-	docker compose up -d defectdojo db
-	
 # Alvo completo: roda todas as ferramentas de segurança na sequência
-all: bandit gitleaks trivy dojo-up
+all: bandit gitleaks trivy upload_scans
