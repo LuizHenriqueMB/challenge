@@ -40,7 +40,7 @@ Credenciais de acesso ao DefectDojo:
 * `Bandit` para encontrar vulnerabilidades no código python.
 * `Trivy` para encontrar vulnerabilidades e segredos em imagens Docker. 
 * `Makefile` como o orquestrador da pipeline.
-* `DefectDojo` como gerenciador de vulnerabilidades.
+* `DefectDojo` como gerenciador de vulnerabilidades utilizando API.
 
 ---
 
