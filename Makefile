@@ -1,21 +1,44 @@
 # Diretório de relatórios
 REPORTS_DIR=./reports
-
-# Alvo para rodar o Gitleaks
-gitleaks:
-	@mkdir -p $(REPORTS_DIR)
-	docker compose run --rm gitleaks
-
-# Alvo para rodar o Bandit
-bandit:
-	@mkdir -p $(REPORTS_DIR)
-	docker compose run --rm bandit
-
-# Alvo para rodar o Trivy
+# Nome da imagem Docker da aplicação para escaneamento
 IMAGE_NAME := challenge
 
-trivy-image:
-	docker compose run --rm trivy image $(IMAGE_NAME)
+# Evita repetição de mkdir em cada alvo individual
+prepare:
+	@mkdir -p $(REPORTS_DIR)
 
-# Alvo para rodar tudo
-all: bandit gitleaks trivy
+# Gitleaks - Escaneia segredos no repositório
+gitleaks: prepare
+	docker compose run --rm gitleaks || true
+
+# Bandit - Verificação de vulnerabilidades no código Python
+bandit: prepare
+	docker compose run --rm bandit || true
+
+# Build da imagem da aplicação para análise com Trivy
+build:
+	docker build -t $(IMAGE_NAME) .
+
+# Trivy - Escaneia vulnerabilidades na imagem Docker
+trivy: prepare build
+	docker compose run --rm trivy trivy image --format json --output /reports/trivy-report.json challenge || true
+
+# DefectDojo
+
+# Sobe o DefectDojo e o banco
+dojo-up:
+	docker compose up -d defectdojo db
+
+
+
+# Para os containers do DefectDojo
+dojo-down:
+	docker compose down
+
+# Reinicia o DefectDojo
+dojo-restart:
+	docker compose down && docker compose up -d defectdojo defectdojo-db
+
+	
+# Alvo completo: roda todas as ferramentas de segurança na sequência
+all: bandit gitleaks trivy 

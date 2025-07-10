@@ -4,19 +4,50 @@ O código-fonte da aplicação `app.py` possui uma vulnerabilidade de XSS (Cross
 
 ---
 
+## Decisões tomadas enquanto montava a pipeline
+
+
+---
+
+## 💻 Como Executar a pipepline
+
+
+
+---
+## 🚀 Acessando o DefectDojo
+
+credenciais de acesso ao DefectDojo:
+
+usuário: `admin`
+senha: `admin123`
+
+ Para rodar o DefectDojo utilize o comando: `make dojo-up`.
+ 
+ Para encerrar o DefectDojo utilize o comando: `make dojo-down`.
+
+ Para reiniciar o DefectDojo utilize o comando: `make dojo-restart`.
+
+---
+
 ## ⚒️ Ferramentas utilizadas até o momento 
 
-* Gitleaks como SAST
-* Bandit 
-* Trivy
-* SonarQube como SAST 
-* Makefile como o Oquestrador da pipeline
+* Gitleaks como SAST.
+* Bandit para encontrar vulnerabilidades no código python.
+* Trivy para encontrar vulnerabilidades como segredos e imagens Docker. 
+* Makefile como o orquestrador da pipeline.
+* DefecDojo como gerenciador de vulnerabilidades.
+
 ---
 
 ## 🪖 Para rodar as ferramentas 
 
-Para rodar o `bandit` basta utilizar o comando: `docker compose up --build bandit` ou `make security`
+Para rodar o `bandit` basta utilizar o comando: `docker compose up --build bandit` ou `make bandit`.
 
-Para rodar o `gitleaks` basta utilizar o comando: `docker compose run --rm gitleaks` ou ``make gitleaks`
+Para rodar o `gitleaks` basta utilizar o comando: `docker compose run --rm gitleaks` ou ``make gitleaks`.
 
-Para rodar o `trivy` basta utilizar o comando: `docker compose run --rm trivy image $(IMAGE_NAME)` 
+Para rodar o `trivy` basta utilizar o comando: `make pipeline`.
+
+---
+
+## 🔍 Evidências (prints e logs de scans)
+
