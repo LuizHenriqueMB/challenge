@@ -18,6 +18,8 @@ Por fim, utilizei o gerenciador de vulnerabilidades `DefectDojo` para uma melhor
 
 * Para executar as ferramentas veja as instruções `como rodar as ferramentas`.
 
+* Para subir a imagem docker, utilize o comando:  `make build`. 
+
 * O arquivo de configuração das ferramentas está dentro do `docker-compose.yml`.
 
 ---
