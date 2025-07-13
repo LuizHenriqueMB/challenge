@@ -34,6 +34,14 @@ Credenciais de acesso ao DefectDojo:
 
 * Depois, acesse: `http://localhost:8080/`
 
+🚨 **Se necessário** 🚨
+
+* Para rodar localmente utilize o comando: `git clone https://github.com/DefectDojo/django-DefectDojo.git`
+
+* Depois, `cd django-DefectDojo`
+
+* Suba os containers, utilizando os comandos: `docker-compose build` e `docker-compose up -d`
+
 ---
 
 ## ⚒️ Ferramentas utilizadas até o momento 
