@@ -42,6 +42,9 @@ Credenciais de acesso ao DefectDojo:
 
 * Suba os containers, utilizando os comandos: `docker-compose build` e `docker-compose up -d`
 
+* Depois volte ao diretório da aplicação para rodar as ferramentas com o comando: `cd ..`
+
+
 ---
 
 ## ⚒️ Ferramentas utilizadas até o momento 
