@@ -61,7 +61,7 @@ Credenciais de acesso ao DefectDojo:
 
 * Para rodar o `bandit`, utilize o comando: `docker compose up --build bandit` ou `make bandit`.
 
-* Para rodar o `gitleaks`, utilize o comando: `docker compose run --rm gitleaks` ou ``make gitleaks`.
+* Para rodar o `gitleaks`, utilize o comando: `docker compose run --rm gitleaks` ou `make gitleaks`.
 
 * Para rodar o `trivy`, utilize o comando: `make pipeline`.
 
